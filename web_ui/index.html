@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop Data Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <h1>Laptop Data from Multiple Online Retailers</h1>
+      <nav>
+        <a href="#dashboard-overview">Overview</a>
+        <a href="#dashboard-listings">Listings</a>
+        <a href="#dashboard-data-visuals">Data Visualisations</a>
+        <a href="#dashboard-network">Copurchased Network</a>
+      </nav>
+    </header>
+
+    <main id="dashboard" class="dashboard">
+      <section id="dashboard-overview" class="dashboard-section dashboard-section--overview">
+        <h2>Overview</h2>
+        <div id="overview-metrics" class="metrics-grid">
+          <div id="metric-total-listings" class="metric-card" data-metric="total">
+            <p class="metric-label">Total Listings</p>
+            <p class="metric-value" data-value="0">—</p>
+          </div>
+          <div id="metric-ebay-listings" class="metric-card" data-metric="ebay">
+            <p class="metric-label">eBay Listings</p>
+            <p class="metric-value" data-value="0">—</p>
+          </div>
+          <div id="metric-jumia-listings" class="metric-card" data-metric="jumia">
+            <p class="metric-label">Jumia Listings</p>
+            <p class="metric-value" data-value="0">—</p>
+          </div>
+          <div id="metric-noon-listings" class="metric-card" data-metric="noon">
+            <p class="metric-label">Noon Listings</p>
+            <p class="metric-value" data-value="0">—</p>
+          </div>
+          <div class="metric-card" data-metric="price-avg">
+            <p class="metric-label">Average Price</p>
+            <p class="metric-value" data-value="0">—</p>
+          </div>
+          <div class="metric-card" data-metric="rating-avg">
+            <p class="metric-label">Average Rating</p>
+            <p class="metric-value" data-value="0">—</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard-listings" class="dashboard-section dashboard-section--listings">
+        <h2>Raw Data</h2>
+        <div class="table-controls">
+          <p class="section-description">Browse the full dataset below. The table starts with the first 5 listings shown.</p>
+          <button id="listings-table-toggle" class="table-toggle" type="button">Show all listings</button>
+        </div>
+        <div class="table-wrapper">
+          <table id="listings-table" class="listings-table">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Vendor</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Reviews</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody id="listings-tbody">
+              <!-- Table rows will be populated here -->
+            </tbody>
+          </table>
+        </div>
+        <p id="table-info" class="table-info"></p>
+      </section>
+
+      <section id="dashboard-data-visuals" class="dashboard-section">
+        <h2>Price and Rating Visualisations</h2>
+        <div class="charts-grid">
+          <div id="price-rating-panel" class="chart-panel">
+            <div id="price-rating-chart" class="chart-frame"></div>
+            <p id="price-rating-caption" class="chart-caption">Relationship between price and rating correlation</p>
+          </div>
+
+          <div id="quartile-panel" class="chart-panel">
+            <div class="chart-frame">
+              <img
+                src="/visualisations/02_listings_by_price_quartile.png"
+                alt="Listings by price quartile"
+                class="viz-image"
+              >
+            </div>
+            <p id="quartile-caption" class="chart-caption">Verifying reliability of the correlation by price quartile</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard-network" class="dashboard-section dashboard-section--network">
+        <h2>Copurchased Products Network</h2>
+        <div id="network-summary" class="summary-panel">
+          <p id="network-summary-text" class="summary-text">Copurchased products from Noon and their recommendation relationships.</p>
+        </div>
+
+        <div class="visualisations-grid">
+          <figure class="viz-tile viz-full">
+            <img src="/visualisations/03_copurchased_network.png" alt="Copurchased network" class="viz-image">
+            <figcaption>Copurchased products network</figcaption>
+          </figure>
+
+          <div class="viz-row">
+            <figure class="viz-tile">
+              <img src="/visualisations/04_copurchased_3d_scatter.png" alt="3D copurchased scatter" class="viz-image">
+              <figcaption>3D scatter of copurchased products</figcaption>
+            </figure>
+
+            <figure class="viz-tile">
+              <img src="/visualisations/05_copurchased_3d_scatter_zoomed.png" alt="Zoomed 3D scatter" class="viz-image">
+              <figcaption>Zoomed 3D scatter (price limited)</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
